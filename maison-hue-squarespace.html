@@ -1,0 +1,270 @@
+<!--
+  ========================================================================
+  MAISON HUE — Holding Page (Squarespace-ready, self-contained)
+  ------------------------------------------------------------------------
+  HOW TO USE ON SQUARESPACE:
+  1. In Squarespace, create a new blank page (Layout: "Blank").
+  2. Add a "Code" block (Insert → More → Code). Switch off "Display Source".
+  3. Paste EVERYTHING below into the Code block and save.
+  4. Replace the two <form> blocks with Squarespace's native
+     "Newsletter Block" so signups go into your Squarespace mailing list.
+     (See the comments next to each form.)
+  ========================================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --mh-bg: #F5EFE6;
+    --mh-bg-warm: #EFE6D9;
+    --mh-ink: #1A1A1A;
+    --mh-ink-soft: #4A4A4A;
+    --mh-muted: #7A7A7A;
+    --mh-gold: #C4A47C;
+    --mh-gold-deep: #A88859;
+    --mh-border: #E5DCCF;
+  }
+  .mh-root, .mh-root * { box-sizing: border-box; }
+  .mh-root {
+    background: var(--mh-bg);
+    color: var(--mh-ink);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .mh-root img { max-width: 100%; display: block; }
+  .mh-serif { font-family: 'Playfair Display', Georgia, serif; }
+  .mh-italic { font-style: italic; font-weight: 400; }
+  .mh-eyebrow {
+    font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--mh-gold-deep); font-weight: 500;
+  }
+
+  /* Layout helpers */
+  .mh-grid { display: grid; }
+  .mh-hero-grid { grid-template-columns: 1fr; min-height: 92vh; }
+  .mh-story-grid { grid-template-columns: 1fr; }
+  .mh-join-grid { grid-template-columns: 1fr; max-width: 1200px; margin: 0 auto; }
+  @media (min-width: 960px) {
+    .mh-hero-grid { grid-template-columns: 1fr 1.05fr; }
+    .mh-story-grid { grid-template-columns: 1fr 0.85fr 1.1fr; }
+    .mh-join-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .mh-pad { padding: 80px 32px; }
+  @media (min-width: 960px) { .mh-pad { padding: 112px 64px; } }
+
+  /* Wordmark */
+  .mh-mark { display: inline-flex; flex-direction: column; align-items: flex-start; }
+  .mh-mark-letters { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 500; line-height: 1; }
+  .mh-mark-letters .h { margin-left: -8px; }
+  .mh-mark-label { font-size: 8px; letter-spacing: 0.42em; font-weight: 500; margin-top: 6px; }
+
+  /* Hero */
+  .mh-hero-title { font-size: clamp(46px, 6.5vw, 86px); font-weight: 500; line-height: 1; letter-spacing: 0.012em; margin: 0; }
+  .mh-hero-tag { color: var(--mh-gold-deep); font-size: clamp(22px, 2.4vw, 30px); font-style: italic; margin: 24px 0 0; }
+  .mh-hero-desc { color: var(--mh-ink-soft); font-size: 16px; line-height: 1.85; max-width: 28rem; margin: 40px 0 0; }
+  .mh-status { color: var(--mh-muted); font-size: 13px; line-height: 2; margin-top: 56px; }
+
+  .mh-btn {
+    display: inline-block; background: var(--mh-ink); color: #FDFBF7;
+    font-family: 'Outfit', sans-serif; font-weight: 500; letter-spacing: 0.18em;
+    font-size: 13px; text-transform: uppercase; padding: 18px 36px;
+    border: none; cursor: pointer; transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none; margin-top: 48px;
+  }
+  .mh-btn:hover { background: #333; transform: translateY(-1px); }
+  .mh-btn-gold { background: var(--mh-gold-deep); }
+  .mh-btn-gold:hover { background: var(--mh-gold); }
+  .mh-btn-full { width: 100%; text-align: center; padding: 18px; margin-top: 8px; }
+
+  /* Story */
+  .mh-story-heading { font-size: clamp(48px, 5.5vw, 76px); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; margin: 0; }
+  .mh-story-copy { color: var(--mh-ink-soft); font-size: 15px; line-height: 1.85; max-width: 28rem; margin-top: 48px; }
+  .mh-story-copy p { margin: 0 0 24px; }
+  .mh-portrait-wrap { display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .mh-portrait { width: 100%; max-width: 340px; min-height: 560px; border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(60,40,20,0.18); }
+  .mh-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 30% center; min-height: 560px; }
+  .mh-features-wrap { display: flex; align-items: center; padding: 32px; }
+  .mh-features {
+    background: var(--mh-bg-warm); border-radius: 4px;
+    padding: 64px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    width: 100%;
+  }
+  @media (max-width: 720px) { .mh-features { grid-template-columns: 1fr; gap: 40px; } }
+  .mh-feat { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .mh-feat svg { color: var(--mh-gold-deep); }
+  .mh-feat-title { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 500; margin-top: 24px; }
+  .mh-feat-body { font-size: 13px; line-height: 1.75; color: var(--mh-ink-soft); margin-top: 16px; white-space: pre-line; }
+
+  /* Ritual */
+  .mh-ritual img { width: 100%; height: auto; display: block; }
+
+  /* Join */
+  .mh-join-cell { padding: 80px 32px; }
+  @media (min-width: 960px) {
+    .mh-join-cell { padding: 112px 56px; }
+    .mh-join-cell + .mh-join-cell { border-left: 1px solid var(--mh-border); }
+  }
+  .mh-join-heading { font-size: clamp(34px, 3.6vw, 52px); font-weight: 500; line-height: 1.05; margin: 24px 0 0; }
+  .mh-join-copy { font-size: 14px; color: var(--mh-ink-soft); line-height: 1.85; max-width: 24rem; margin: 40px 0 40px; }
+  .mh-input {
+    width: 100%; background: #FFFFFF; border: 1px solid var(--mh-border); color: var(--mh-ink);
+    border-radius: 4px; padding: 14px 16px; font-size: 15px; font-family: 'Outfit', sans-serif;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease; margin-bottom: 16px;
+  }
+  .mh-input::placeholder { color: #B5A78F; }
+  .mh-input:focus { outline: none; border-color: var(--mh-gold); box-shadow: 0 0 0 3px rgba(196,164,124,0.15); }
+  .mh-select-wrap { position: relative; }
+  .mh-select-wrap select { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer; }
+  .mh-select-wrap::after {
+    content: ""; position: absolute; right: 16px; top: 50%; width: 8px; height: 8px;
+    border-right: 1.5px solid var(--mh-ink); border-bottom: 1.5px solid var(--mh-ink);
+    transform: translateY(-75%) rotate(45deg); pointer-events: none;
+  }
+
+  /* Footer */
+  .mh-footer { border-top: 1px solid var(--mh-border); padding: 56px 32px; text-align: center; background: var(--mh-bg); }
+  .mh-footer-tag { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; margin-top: 16px; }
+  .mh-footer-meta { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mh-muted); margin-top: 28px; display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; }
+  @media (min-width: 720px) { .mh-footer-meta { flex-direction: row; gap: 40px; } }
+  .mh-footer-meta a { color: var(--mh-muted); text-decoration: none; }
+  .mh-footer-meta a:hover { opacity: 0.6; }
+</style>
+
+<main class="mh-root">
+
+  <!-- ============== HERO ============== -->
+  <section class="mh-grid mh-hero-grid" id="hero">
+    <div class="mh-pad" style="display: flex; flex-direction: column; justify-content: center;">
+      <div class="mh-mark" style="margin-bottom: 48px;">
+        <div class="mh-mark-letters">M<span class="h">H</span></div>
+        <div class="mh-mark-label">MAISON HUE</div>
+      </div>
+      <h1 class="mh-serif mh-hero-title">MAISON HUE</h1>
+      <p class="mh-serif mh-hero-tag">Your Colour. Our Artistry.</p>
+      <p class="mh-hero-desc">A softer, more personal way to blend<br>regrowth between salon visits.</p>
+      <a href="#join" class="mh-btn" style="align-self: flex-start;">Join the Founding Shade List</a>
+      <div class="mh-status">
+        <div>Currently in development.</div>
+        <div>Early access opening soon.</div>
+      </div>
+    </div>
+    <div>
+      <img src="https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png"
+           alt="Maison Hue product trio" style="width: 100%; height: 100%; object-fit: cover; min-height: 420px;">
+    </div>
+  </section>
+
+  <!-- ============== STORY ============== -->
+  <section class="mh-grid mh-story-grid" id="story">
+    <div class="mh-pad">
+      <div class="mh-eyebrow" style="margin-bottom: 40px;">The Maison Hue Story</div>
+      <h2 class="mh-serif mh-story-heading">Rooted in<br><em class="mh-italic">you.</em></h2>
+      <div class="mh-story-copy">
+        <p>We created Maison Hue for the moments between salon visits.</p>
+        <p>To bring ease, confidence, and care back to your routine.</p>
+        <p>Our three-step system is designed to seamlessly blend regrowth, protect your colour, and let your tone shine — beautifully, naturally, you.</p>
+      </div>
+    </div>
+    <div class="mh-portrait-wrap">
+      <div class="mh-portrait">
+        <img src="https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/zwscuoix_IMG_0182.jpeg" alt="Maison Hue editorial portrait">
+      </div>
+    </div>
+    <div class="mh-features-wrap">
+      <div class="mh-features">
+        <div class="mh-feat">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="30"/><path d="M22 38 C22 28, 30 22, 40 22 C40 32, 34 40, 22 38 Z"/><path d="M22 38 L30 30"/></svg>
+          <div class="mh-feat-title">Gentle &amp; Effective</div>
+          <p class="mh-feat-body">Kind to hair and scalp.
+Blends beautifully.</p>
+        </div>
+        <div class="mh-feat">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="30"/><path d="M16 32 Q22 26, 28 32 T40 32 T52 32"/><path d="M16 40 Q22 34, 28 40 T40 40 T52 40"/></svg>
+          <div class="mh-feat-title">Personalised</div>
+          <p class="mh-feat-body">Custom colour solutions
+for a seamless match.</p>
+        </div>
+        <div class="mh-feat">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="30"/><path d="M32 18 L34 28 L44 30 L34 32 L32 42 L30 32 L20 30 L30 28 Z"/><path d="M44 20 L45 24 L49 25 L45 26 L44 30 L43 26 L39 25 L43 24 Z"/></svg>
+          <div class="mh-feat-title">Elevated Care</div>
+          <p class="mh-feat-body">Thoughtful formulas.
+Refined experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== RITUAL ============== -->
+  <section class="mh-ritual" id="ritual">
+    <img src="https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/l366adps_ECF3B368-BB6E-411E-BDDF-ED6CFE2F74E3.jpeg"
+         alt="The Maison Hue Ritual — The Veil, The Hue, The Finish">
+  </section>
+
+  <!-- ============== JOIN (Forms) ============== -->
+  <!--
+    NOTE FOR SQUARESPACE:
+    The forms below open the visitor's email client (mailto:) as a simple
+    fallback. For real waitlist collection on Squarespace, DELETE each form
+    and replace it with a "Newsletter Block" (Insert → Newsletter) so emails
+    are saved into your Squarespace mailing list automatically.
+  -->
+  <section class="mh-grid mh-join-grid" id="join">
+    <div class="mh-join-cell">
+      <div class="mh-eyebrow">Join the Waitlist</div>
+      <h3 class="mh-serif mh-join-heading">Be the first<br>to experience<br>Maison Hue.</h3>
+      <p class="mh-join-copy">Join our Founding Shade List and be the first to access early updates, exclusive offers, and launch details.</p>
+      <form action="mailto:hello@maisonhue.co.uk" method="post" enctype="text/plain" style="max-width: 24rem;">
+        <input class="mh-input" type="text" name="Name" placeholder="Your name" required>
+        <input class="mh-input" type="email" name="Email" placeholder="Email address" required>
+        <button class="mh-btn mh-btn-full" type="submit">Join the Waitlist</button>
+      </form>
+    </div>
+
+    <div class="mh-join-cell">
+      <div class="mh-eyebrow">Reserve Your Shade</div>
+      <h3 class="mh-serif mh-join-heading">Reserve<br><em class="mh-italic">your shade.</em></h3>
+      <p class="mh-join-copy">Tell us a little about your colour and we'll let you know when your custom match is ready.</p>
+      <form action="mailto:hello@maisonhue.co.uk" method="post" enctype="text/plain" style="max-width: 24rem;">
+        <input class="mh-input" type="text" name="Name" placeholder="Your name" required>
+        <input class="mh-input" type="email" name="Email" placeholder="Email address" required>
+        <div class="mh-select-wrap">
+          <select class="mh-input" name="Hair colour" required style="margin-bottom: 0;">
+            <option value="" disabled selected>Your current hair colour</option>
+            <option>Platinum Blonde</option>
+            <option>Ash Blonde</option>
+            <option>Honey Blonde</option>
+            <option>Light Brown</option>
+            <option>Caramel Brunette</option>
+            <option>Chestnut Brown</option>
+            <option>Dark Brunette</option>
+            <option>Soft Black</option>
+            <option>Auburn</option>
+            <option>Copper Red</option>
+            <option>Grey / Silver</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button class="mh-btn mh-btn-gold mh-btn-full" type="submit" style="margin-top: 16px;">Reserve My Shade</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="mh-footer">
+    <div class="mh-mark" style="align-items: center;">
+      <div class="mh-mark-letters">M<span class="h">H</span></div>
+      <div class="mh-mark-label">MAISON HUE</div>
+    </div>
+    <div class="mh-footer-tag">Your Colour. Our Artistry.</div>
+    <div class="mh-footer-meta">
+      <span>© Maison Hue. All Rights Reserved.</span>
+      <span style="color: var(--mh-border);">|</span>
+      <a href="https://instagram.com/maison.hue" target="_blank" rel="noreferrer">Instagram</a>
+    </div>
+  </footer>
+</main>
