@@ -9,9 +9,9 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const HERO_IMG =
-  "https://static.prod-images.emergentagent.com/jobs/90bc8e32-be42-4d94-861f-79ef9887f921/images/2337017b22a27ffef57666a135a08d7cdd77113f9e188da9a6c56ba8b2256fa8.png";
+  "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png";
 const STORY_IMG =
-  "https://images.unsplash.com/photo-1763551229890-64e97d845251?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwYnJvd24lMjBoYWlyJTIwZWxlZ2FudCUyMG5ldXRyYWx8ZW58MHx8fHwxNzc4NjA3Mzc4fDA&ixlib=rb-4.1.0&q=85";
+  "https://images.unsplash.com/photo-1645389775672-93c014334be4?fm=jpg&q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0";
 const SWATCH_IMG =
   "https://static.prod-images.emergentagent.com/jobs/90bc8e32-be42-4d94-861f-79ef9887f921/images/7c91ba6b29bcfee1c7d2e1c0472e400176c0fe2f72238faf069fb6b004e26d1a.png";
 
@@ -153,14 +153,15 @@ function StorySection() {
           {/* Portrait */}
           <div className="flex items-start justify-center md:justify-end">
             <div
-              className="w-full max-w-[280px] aspect-[3/4] overflow-hidden"
+              className="w-full max-w-[320px] aspect-[3/4] overflow-hidden shadow-sm"
               style={{ borderRadius: 2 }}
               data-testid="story-portrait-wrapper"
             >
               <img
                 src={STORY_IMG}
-                alt="Woman with elegant brown hair"
+                alt="Woman with long luscious brown hair"
                 className="w-full h-full object-cover"
+                style={{ objectPosition: "center 20%" }}
                 data-testid="story-portrait"
               />
             </div>
