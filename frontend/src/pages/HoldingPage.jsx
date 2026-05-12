@@ -33,6 +33,14 @@ const SHADE_OPTIONS = [
 /* ---------------- Sections ---------------- */
 
 function HeroSection({ onScrollToWaitlist }) {
+  const [scrollY, setScrollY] = React.useState(0);
+  React.useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  const parallax = Math.min(scrollY * 0.18, 120);
+  const fade = Math.max(1 - scrollY / 700, 0.35);
   return (
     <section
       id="hero"
