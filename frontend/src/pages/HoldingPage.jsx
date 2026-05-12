@@ -71,11 +71,11 @@ function Hero() {
             A softer, more personal way to blend<br />regrowth between salon visits.
           </p>
           <button onClick={() => scrollTo("join")} className="mh-btn-primary mt-12 self-start" data-testid="hero-cta-button">
-            Join the Founding Shade List
+            Become a Founder
           </button>
           <div className="mt-14 font-sans-body" style={{ color: "var(--mh-muted)", fontSize: 13, lineHeight: 2 }}>
-            <div data-testid="hero-status-1">Currently in development.</div>
-            <div data-testid="hero-status-2">Early access opening soon.</div>
+            <div data-testid="hero-status-1">In quiet development.</div>
+            <div data-testid="hero-status-2">Opening soon.</div>
           </div>
         </div>
         <div className="relative overflow-hidden mh-fade mh-delay-2" data-testid="hero-image-wrapper">
@@ -107,7 +107,7 @@ const FEATURES = [
   },
   {
     title: "Personalised",
-    body: "Custom colour solutions\nfor a seamless match.",
+    body: "Matched to your colour,\nnot to a category.",
     icon: (
       <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="32" cy="32" r="30" />
@@ -118,7 +118,7 @@ const FEATURES = [
   },
   {
     title: "Elevated Care",
-    body: "Thoughtful formulas.\nRefined experience.",
+    body: "Thoughtful formulas.\nA refined ritual.",
     icon: (
       <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="32" cy="32" r="30" />
@@ -148,7 +148,7 @@ function Story() {
           <div className="mt-12 space-y-6 font-sans-body max-w-md" style={{ color: "var(--mh-ink-soft)", fontSize: 15, lineHeight: 1.85 }} data-testid="story-copy">
             <p>We created Maison Hue for the moments between salon visits.</p>
             <p>To bring ease, confidence, and care back to your routine.</p>
-            <p>Our three-step system is designed to seamlessly blend regrowth, protect your colour, and let your tone shine — beautifully, naturally, you.</p>
+            <p>Our three-step ritual, composed to blend regrowth seamlessly, protect your colour, and let your tone shine — beautifully, naturally, undeniably you.</p>
           </div>
         </div>
 
@@ -216,33 +216,10 @@ function Ritual() {
 
 /* ===== Join (Waitlist + Reserve Your Shade) ===== */
 function Join() {
-  const [wlName, setWlName] = useState("");
-  const [wlEmail, setWlEmail] = useState("");
-  const [wlLoading, setWlLoading] = useState(false);
-
   const [rsName, setRsName] = useState("");
   const [rsEmail, setRsEmail] = useState("");
   const [rsColour, setRsColour] = useState("");
   const [rsLoading, setRsLoading] = useState(false);
-
-  const submitWaitlist = async (e) => {
-    e.preventDefault();
-    if (!wlName.trim() || !wlEmail.trim()) {
-      toast.error("Please add your name and email.");
-      return;
-    }
-    setWlLoading(true);
-    try {
-      await axios.post(`${API}/waitlist`, { name: wlName, email: wlEmail });
-      toast.success("Welcome to the Founding Shade List.");
-      setWlName("");
-      setWlEmail("");
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Something went wrong.");
-    } finally {
-      setWlLoading(false);
-    }
-  };
 
   const submitReserve = async (e) => {
     e.preventDefault();
@@ -266,49 +243,9 @@ function Join() {
 
   return (
     <section id="join" style={{ background: "var(--mh-bg)" }} data-testid="join-section">
-      <div className="grid grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto">
-        {/* Join the Waitlist */}
-        <div className="px-8 md:px-12 lg:px-16 py-20 lg:py-28 mh-fade mh-delay-1 lg:border-r" style={{ borderColor: "var(--mh-border)" }}>
-          <div className="font-sans-body mb-8" style={{ fontSize: 11, letterSpacing: "0.34em", textTransform: "uppercase", color: "var(--mh-gold-deep)", fontWeight: 500 }} data-testid="waitlist-eyebrow">
-            Join the Waitlist
-          </div>
-          <h3
-            className="font-serif-display"
-            style={{ fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.05, fontWeight: 500 }}
-            data-testid="waitlist-heading"
-          >
-            Be the first<br />to experience<br />Maison Hue.
-          </h3>
-          <p className="mt-10 font-sans-body max-w-sm" style={{ fontSize: 14, color: "var(--mh-ink-soft)", lineHeight: 1.85 }} data-testid="waitlist-copy">
-            Join our Founding Shade List and be the first to access early updates, exclusive offers, and launch details.
-          </p>
-          <form onSubmit={submitWaitlist} className="mt-10 space-y-4 max-w-sm" data-testid="waitlist-form">
-            <input
-              type="text"
-              required
-              placeholder="Your name"
-              value={wlName}
-              onChange={(e) => setWlName(e.target.value)}
-              className="mh-input"
-              data-testid="waitlist-name-input"
-            />
-            <input
-              type="email"
-              required
-              placeholder="Email address"
-              value={wlEmail}
-              onChange={(e) => setWlEmail(e.target.value)}
-              className="mh-input"
-              data-testid="waitlist-email-input"
-            />
-            <button type="submit" disabled={wlLoading} className="mh-btn-primary w-full mt-2" data-testid="waitlist-submit-button">
-              {wlLoading ? "Joining…" : "Join the Waitlist"}
-            </button>
-          </form>
-        </div>
-
-        {/* Reserve Your Shade */}
-        <div className="px-8 md:px-12 lg:px-16 py-20 lg:py-28 mh-fade mh-delay-2">
+      <div className="max-w-3xl mx-auto">
+        {/* Reserve Your Shade — Become a Founder */}
+        <div className="px-8 md:px-12 lg:px-16 py-20 lg:py-28 mh-fade mh-delay-2 text-center">
           <div className="font-sans-body mb-8" style={{ fontSize: 11, letterSpacing: "0.34em", textTransform: "uppercase", color: "var(--mh-gold-deep)", fontWeight: 500 }} data-testid="reserve-eyebrow">
             Reserve Your Shade
           </div>
@@ -317,12 +254,12 @@ function Join() {
             style={{ fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.05, fontWeight: 500 }}
             data-testid="reserve-heading"
           >
-            Reserve<br /><em className="italic" style={{ fontWeight: 400 }}>your shade.</em>
+            Become a <em className="italic" style={{ fontWeight: 400 }}>founder.</em>
           </h3>
-          <p className="mt-10 font-sans-body max-w-sm" style={{ fontSize: 14, color: "var(--mh-ink-soft)", lineHeight: 1.85 }} data-testid="reserve-copy">
-            Tell us a little about your colour and we'll let you know when your custom match is ready.
+          <p className="mt-10 font-sans-body mx-auto" style={{ fontSize: 14, color: "var(--mh-ink-soft)", lineHeight: 1.85, maxWidth: "32rem" }} data-testid="reserve-copy">
+            Founding members receive early-access pricing, priority delivery, the complete three-step ritual, and the calibration card with our compliments. We will write to you as the maison prepares to open.
           </p>
-          <form onSubmit={submitReserve} className="mt-10 space-y-4 max-w-sm" data-testid="reserve-form">
+          <form onSubmit={submitReserve} className="mt-10 space-y-4 max-w-sm mx-auto" data-testid="reserve-form">
             <input
               type="text"
               required
@@ -360,7 +297,7 @@ function Join() {
               </svg>
             </div>
             <button type="submit" disabled={rsLoading} className="mh-btn-gold w-full mt-2" data-testid="reserve-submit-button">
-              {rsLoading ? "Reserving…" : "Reserve My Shade"}
+              {rsLoading ? "Reserving…" : "Reserve My Place"}
             </button>
           </form>
         </div>
@@ -396,6 +333,13 @@ function Footer() {
           >
             Instagram
           </a>
+        </div>
+        <div
+          className="mt-4 font-sans-body"
+          style={{ fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--mh-muted)" }}
+          data-testid="footer-origin"
+        >
+          Hand-blended in the Cotswolds · London
         </div>
       </div>
     </footer>
