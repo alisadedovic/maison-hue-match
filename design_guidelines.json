@@ -1,0 +1,118 @@
+{
+  "project_name": "Maison Hue Holding Page",
+  "theme_and_archetype": {
+    "theme": "Light",
+    "archetype": "1 (Organic & Earthy / Luxury Beauty Hybrid)",
+    "description": "A luxury beauty brand aesthetic emphasizing warmth, elegance, and bespoke quality. High-end editorial feel using generous spacing, elegant serif typography, and a cream/beige palette."
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Playfair Display, serif",
+      "weights": ["400", "500", "600"],
+      "usage": "H1, H2, H3, Editorial quotes, Brand Name. Use tracking-tight for large sizes."
+    },
+    "body": {
+      "font_family": "Outfit, sans-serif",
+      "weights": ["300", "400", "500"],
+      "usage": "Paragraphs, UI elements, labels, buttons. Clean and legible."
+    },
+    "monogram": {
+      "font_family": "Playfair Display, serif",
+      "style": "MH - Use elegant thin weight or standard serif for the logo mark."
+    }
+  },
+  "colors": {
+    "background": {
+      "page": "#F5EFE6",
+      "card": "#FDFBF7",
+      "input": "#FFFFFF"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#4A4A4A",
+      "muted": "#7A7A7A"
+    },
+    "brand": {
+      "primary": "#1A1A1A",
+      "primary_hover": "#333333",
+      "accent": "#C4A47C",
+      "border": "#E5DCCF"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Generous. Use p-8, p-12, p-16, p-24 for section paddings. Ensure elements breathe.",
+    "container": "Max-width 6xl (max-w-6xl) centered for the main content.",
+    "alignment": "Center-align hero and headers to reinforce editorial symmetry, left-align paragraph content where readability demands it."
+  },
+  "components_strategy": {
+    "buttons": {
+      "primary": "Black pill shape (rounded-full), white text, no shadow, subtle hover state (bg-zinc-800).",
+      "test_ids": "Required (e.g., data-testid='hero-cta-button')"
+    },
+    "inputs": {
+      "style": "Minimalist. Either underline style (border-b only) or very subtle rounded-md with border-border. Use Shadcn customized.",
+      "test_ids": "Required (e.g., data-testid='waitlist-email-input')"
+    },
+    "cards": {
+      "style": "Soft beige/off-white (bg-[#FDFBF7]), subtle 1px border (border-[#E5DCCF]), large padding (p-8 to p-12). No harsh shadows, just very diffuse ambient shadow if necessary (shadow-sm)."
+    }
+  },
+  "media_urls": {
+    "hero_bottles": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/90bc8e32-be42-4d94-861f-79ef9887f921/images/2337017b22a27ffef57666a135a08d7cdd77113f9e188da9a6c56ba8b2256fa8.png",
+      "description": "Three cream cosmetic bottles ('The Veil', 'The Hue', 'The Finish') for the Hero Section.",
+      "category": "hero_image"
+    },
+    "lifestyle_portrait": {
+      "url": "https://images.unsplash.com/photo-1763551229890-64e97d845251?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwYnJvd24lMjBoYWlyJTIwZWxlZ2FudCUyMG5ldXRyYWx8ZW58MHx8fHwxNzc4NjA3Mzc4fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Lifestyle portrait of a woman with elegant brown hair for 'The Maison Hue Story' section.",
+      "category": "story_image"
+    },
+    "hair_swatches": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/90bc8e32-be42-4d94-861f-79ef9887f921/images/7c91ba6b29bcfee1c7d2e1c0472e400176c0fe2f72238faf069fb6b004e26d1a.png",
+      "description": "Hair color swatches image for the 'Reserve Your Shade' section.",
+      "category": "feature_image"
+    }
+  },
+  "content_structure": {
+    "hero": {
+      "logo_mark": "MH",
+      "brand_name": "MAISON HUE",
+      "tagline": "Your Colour. Our Artistry.",
+      "note": "Currently in development",
+      "cta": "JOIN THE FOUNDING SHADE LIST"
+    },
+    "story": {
+      "heading": "Rooted in you.",
+      "copy": "Placeholder for brand story (emphasizing bespoke, high-end care)."
+    },
+    "features_card": {
+      "items": ["Gentle & Effective", "Personalised", "Elevated Care"]
+    },
+    "forms": {
+      "waitlist": {
+        "title": "Join The Waitlist",
+        "fields": ["Name", "Email"],
+        "subtitle": "Be the first to experience Maison Hue"
+      },
+      "reserve_shade": {
+        "title": "Reserve Your Shade",
+        "fields": ["Name", "Email", "Current Hair Colour"]
+      }
+    },
+    "footer": {
+      "logo_mark": "MH",
+      "tagline": "Your Colour. Our Artistry.",
+      "instagram": "@maison.hue"
+    }
+  },
+  "instructions_to_main_agent": [
+    "REPLICATE EXACTLY: Use cream/beige #F5EFE6 palette across the page layout.",
+    "TYPOGRAPHY: Import 'Playfair Display' from Google Fonts for all headings and 'Outfit' (or generic sans-serif) for body text.",
+    "BRANDING: Use the text 'MH' in Playfair Display as the monogram logo.",
+    "BUTTONS: Must be black pill shapes (rounded-full bg-black text-white) with no shadows.",
+    "TESTING: Add 'data-testid' attributes to ALL interactive elements (buttons, inputs, forms) using kebab-case.",
+    "MEDIA: Use the provided media_urls strictly. Do not use generic placeholders.",
+    "LAYOUT: Apply generous padding. Group the three feature items inside a soft beige card."
+  ]
+}
