@@ -30,7 +30,20 @@ Build a holding page that looks exactly like the reference (luxury hair colour b
 ## Notes
 - Resend sandbox: emails only deliver to alisa_dedovic@msn.com until a custom domain is verified at resend.com/domains. Code already returns email_sent/admin_notified flags so the UX works regardless.
 
+## Updates (Feb 2026)
+- Page restructured into narrative flow: Hero → Story → Ritual → Vision → Join → Footer
+- All section imagery now uses the founder's own brand photos (no stock imagery):
+  - Hero: product trio mirror still-life
+  - Story: vanity mirror application moment
+  - Vision: lustrous brown wavy hair editorial shot
+- Join section reformatted to a centered, full-width waitlist with perks grid (image removed per founder)
+- Reserve Your Shade form temporarily not surfaced on the new layout — kept on backend, will return with AI Shade-Match prototype
+
 ## Backlog (P1)
+- AI Shade-Match prototype (capture/upload photo → return closest custom shade). Founder confirmed: ship + revisit later.
+- Viral referral mechanic on waitlist ("share to jump the queue")
 - Custom domain verification on Resend → enable user-facing confirmations
+- Domain mapping to maisonhue.co.uk on production deploy
 - Admin dashboard route to view signups
 - Honeypot / rate limiting on forms
+- Componentise HoldingPage.jsx (Story/Ritual/Vision/Join into separate files)

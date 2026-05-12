@@ -7,8 +7,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png";
-const STORY_IMG = "https://images.unsplash.com/photo-1605497788044-5a32c7078486?fm=jpg&q=85&w=1400&auto=format&fit=crop";
-const VISION_IMG = "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?fm=jpg&q=85&w=1800&auto=format&fit=crop";
+const STORY_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/kya45fan_A073E9E4-F669-44DA-81EA-9C0AFE166765.png";
+const VISION_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/zwscuoix_IMG_0182.jpeg";
 
 const NAV = [
   { label: "The Story", id: "story" },
@@ -104,7 +104,7 @@ function Story() {
     <section id="story" className="border-t" style={{ background: "var(--mh-bg-warm)", borderColor: "var(--mh-border)" }} data-testid="story-section">
       <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.4fr]">
         <div className="overflow-hidden" data-testid="story-image-wrapper">
-          <img src={STORY_IMG} alt="Maison Hue colour artistry" className="w-full h-full object-cover" style={{ minHeight: 520, objectPosition: "center 30%" }} data-testid="story-image" />
+          <img src={STORY_IMG} alt="Maison Hue colour artistry" className="w-full h-full object-cover" style={{ minHeight: 520, objectPosition: "center center" }} data-testid="story-image" />
         </div>
         <div className="px-8 md:px-16 lg:px-24 py-20 lg:py-28">
           <Eyebrow testid="story-eyebrow">The Story</Eyebrow>
