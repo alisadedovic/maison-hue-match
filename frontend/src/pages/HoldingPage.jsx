@@ -7,9 +7,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png";
-const UPDO_IMG = "https://images.unsplash.com/photo-1725886814583-25e3e9c2f2d2?fm=jpg&q=80&w=1400&auto=format&fit=crop";
-const WAVES_IMG = "https://plus.unsplash.com/premium_photo-1706800176020-49d04f18b9a6?fm=jpg&q=80&w=1800&auto=format&fit=crop";
-const JOIN_IMG = "https://images.unsplash.com/photo-1669396174967-383db6168c62?fm=jpg&q=80&w=1000&auto=format&fit=crop";
+const STORY_IMG = "https://images.unsplash.com/photo-1605497788044-5a32c7078486?fm=jpg&q=85&w=1400&auto=format&fit=crop";
+const VISION_IMG = "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?fm=jpg&q=85&w=1800&auto=format&fit=crop";
 
 const NAV = [
   { label: "The Story", id: "story" },
@@ -105,7 +104,7 @@ function Story() {
     <section id="story" className="border-t" style={{ background: "var(--mh-bg-warm)", borderColor: "var(--mh-border)" }} data-testid="story-section">
       <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.4fr]">
         <div className="overflow-hidden" data-testid="story-image-wrapper">
-          <img src={UPDO_IMG} alt="Elegant brown hair updo" className="w-full h-full object-cover" style={{ minHeight: 520, objectPosition: "center 30%" }} data-testid="story-image" />
+          <img src={STORY_IMG} alt="Maison Hue colour artistry" className="w-full h-full object-cover" style={{ minHeight: 520, objectPosition: "center 30%" }} data-testid="story-image" />
         </div>
         <div className="px-8 md:px-16 lg:px-24 py-20 lg:py-28">
           <Eyebrow testid="story-eyebrow">The Story</Eyebrow>
@@ -180,7 +179,7 @@ function Vision() {
           </div>
         </div>
         <div className="overflow-hidden" data-testid="vision-image-wrapper">
-          <img src={WAVES_IMG} alt="Lustrous brown waves" className="w-full h-full object-cover" style={{ minHeight: 480 }} data-testid="vision-image" />
+          <img src={VISION_IMG} alt="Maison Hue beauty reference" className="w-full h-full object-cover" style={{ minHeight: 480 }} data-testid="vision-image" />
         </div>
       </div>
     </section>
@@ -214,31 +213,26 @@ function Join() {
 
   return (
     <section id="join" className="border-t" style={{ background: "var(--mh-bg)", borderColor: "var(--mh-border)" }} data-testid="join-section">
-      <div className="grid grid-cols-1 lg:grid-cols-[0.7fr_1.5fr]">
-        <div className="overflow-hidden hidden lg:block" data-testid="join-image-wrapper">
-          <img src={JOIN_IMG} alt="Maison Hue still life" className="w-full h-full object-cover" style={{ minHeight: 460 }} />
-        </div>
-        <div className="px-8 md:px-16 lg:px-24 py-20 lg:py-24">
-          <h3 className="font-sans-body" style={{ fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontWeight: 500 }} data-testid="join-heading">Join the Founding Shade List</h3>
-          <p className="font-sans-body mt-4 max-w-md" style={{ fontSize: 14, color: "var(--mh-ink-soft)", lineHeight: 1.7 }} data-testid="join-subtitle">
-            Be first to receive updates, early access<br />and future shade testing invitations.
-          </p>
-          <form onSubmit={submit} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl" data-testid="join-form">
-            <input type="email" required placeholder="Enter your email address" value={email}
-                   onChange={(e) => setEmail(e.target.value)} className="mh-input flex-1" data-testid="join-email-input" />
-            <button type="submit" disabled={loading} className="mh-btn-primary whitespace-nowrap" data-testid="join-submit-button">
-              {loading ? "Joining…" : "Join the List"}
-            </button>
-          </form>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-14 max-w-3xl" data-testid="join-perks">
-            {PERKS.map((p) => (
-              <div key={p.title} className="flex flex-col items-center text-center">
-                <p.icon size={22} style={{ color: "var(--mh-gold-deep)" }} strokeWidth={1.2} />
-                <div className="font-sans-body mt-4" style={{ fontSize: 11, letterSpacing: "0.24em", textTransform: "uppercase", fontWeight: 500 }}>{p.title}</div>
-                <p className="font-sans-body mt-2" style={{ fontSize: 12, color: "var(--mh-ink-soft)", lineHeight: 1.6 }}>{p.body}</p>
-              </div>
-            ))}
-          </div>
+      <div className="px-8 md:px-16 lg:px-24 py-20 lg:py-24 max-w-5xl mx-auto text-center">
+        <h3 className="font-sans-body" style={{ fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontWeight: 500 }} data-testid="join-heading">Join the Founding Shade List</h3>
+        <p className="font-sans-body mt-4 mx-auto max-w-md" style={{ fontSize: 14, color: "var(--mh-ink-soft)", lineHeight: 1.7 }} data-testid="join-subtitle">
+          Be first to receive updates, early access<br />and future shade testing invitations.
+        </p>
+        <form onSubmit={submit} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto" data-testid="join-form">
+          <input type="email" required placeholder="Enter your email address" value={email}
+                 onChange={(e) => setEmail(e.target.value)} className="mh-input flex-1" data-testid="join-email-input" />
+          <button type="submit" disabled={loading} className="mh-btn-primary whitespace-nowrap" data-testid="join-submit-button">
+            {loading ? "Joining…" : "Join the List"}
+          </button>
+        </form>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-14 max-w-3xl mx-auto" data-testid="join-perks">
+          {PERKS.map((p) => (
+            <div key={p.title} className="flex flex-col items-center text-center">
+              <p.icon size={22} style={{ color: "var(--mh-gold-deep)" }} strokeWidth={1.2} />
+              <div className="font-sans-body mt-4" style={{ fontSize: 11, letterSpacing: "0.24em", textTransform: "uppercase", fontWeight: 500 }}>{p.title}</div>
+              <p className="font-sans-body mt-2" style={{ fontSize: 12, color: "var(--mh-ink-soft)", lineHeight: 1.6 }}>{p.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
