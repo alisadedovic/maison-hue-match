@@ -214,7 +214,50 @@ function Ritual() {
   );
 }
 
-/* ===== Join (Waitlist + Reserve Your Shade) ===== */
+/* ===== Matching Experience (teaser) ===== */
+function Matching() {
+  return (
+    <section
+      id="matching"
+      className="border-t"
+      style={{ background: "var(--mh-bg-warm)", borderColor: "var(--mh-border)" }}
+      data-testid="matching-section"
+    >
+      <div className="max-w-3xl mx-auto px-8 md:px-12 lg:px-16 py-20 lg:py-28 text-center mh-fade">
+        <div
+          className="font-sans-body mb-8"
+          style={{ fontSize: 11, letterSpacing: "0.34em", textTransform: "uppercase", color: "var(--mh-gold-deep)", fontWeight: 500 }}
+          data-testid="matching-eyebrow"
+        >
+          The Matching Experience
+        </div>
+        <h2
+          className="font-serif-display"
+          style={{ fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.05, fontWeight: 500 }}
+          data-testid="matching-heading"
+        >
+          Composed for <em className="italic" style={{ fontWeight: 400 }}>your colour.</em>
+        </h2>
+        <p
+          className="mt-10 font-sans-body mx-auto"
+          style={{ fontSize: 14, color: "var(--mh-ink-soft)", lineHeight: 1.85, maxWidth: "32rem" }}
+          data-testid="matching-copy"
+        >
+          Maison Hue's matching system reads your colour from a single photograph and composes a bespoke formula. Opening to founders soon.
+        </p>
+        <button
+          onClick={() => scrollTo("join")}
+          className="mh-btn-primary mt-12"
+          data-testid="matching-cta-button"
+        >
+          Coming Soon
+        </button>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Join (Reserve Your Shade) ===== */
 function Join() {
   const [rsName, setRsName] = useState("");
   const [rsEmail, setRsEmail] = useState("");
@@ -352,6 +395,7 @@ export default function HoldingPage() {
       <Hero />
       <Story />
       <Ritual />
+      <Matching />
       <Join />
       <Footer />
     </main>
