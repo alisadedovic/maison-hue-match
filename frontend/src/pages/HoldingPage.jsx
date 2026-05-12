@@ -7,7 +7,7 @@ const API = `${BACKEND_URL}/api`;
 
 /* === Imagery === */
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png";
-const STORY_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/zwscuoix_IMG_0182.jpeg";
+const STORY_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/korf23ep_1CA05D22-9583-4EC7-BC88-AAD15E79D2B0.png";
 const RITUAL_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/l366adps_ECF3B368-BB6E-411E-BDDF-ED6CFE2F74E3.jpeg";
 
 const HAIR_COLOURS = [
@@ -159,7 +159,7 @@ function Story() {
               src={STORY_IMG}
               alt="Maison Hue editorial portrait"
               className="w-full h-full object-cover"
-              style={{ minHeight: 560, objectPosition: "30% center" }}
+              style={{ minHeight: 560, objectPosition: "60% 35%" }}
               data-testid="story-image"
             />
           </div>
