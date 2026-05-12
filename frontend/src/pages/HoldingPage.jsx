@@ -9,6 +9,7 @@ const API = `${BACKEND_URL}/api`;
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png";
 const STORY_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/kya45fan_A073E9E4-F669-44DA-81EA-9C0AFE166765.png";
 const VISION_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/zwscuoix_IMG_0182.jpeg";
+const RITUAL_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/l366adps_ECF3B368-BB6E-411E-BDDF-ED6CFE2F74E3.jpeg";
 
 const NAV = [
   { label: "The Story", id: "story" },
@@ -132,32 +133,17 @@ function Story() {
 }
 
 /* ===== Ritual ===== */
-const RITUAL = [
-  { n: "01", title: "The Veil", body: "Softens the appearance of regrowth and prepares the roots for blending." },
-  { n: "02", title: "The Hue", body: "A personalised colour layer designed to blend into your existing shade." },
-  { n: "03", title: "The Finish", body: "A setting mist created to add shine, freshness and hold." },
-];
-
 function Ritual() {
   return (
     <section id="ritual" className="border-t" style={{ background: "var(--mh-bg)", borderColor: "var(--mh-border)" }} data-testid="ritual-section">
-      <div className="px-8 md:px-16 lg:px-24 py-20 lg:py-28 text-center">
-        <Eyebrow testid="ritual-eyebrow">The Ritual</Eyebrow>
-        <h2 className="font-serif-display mx-auto" style={{ fontSize: "clamp(28px,3vw,42px)", lineHeight: 1.2, fontWeight: 500 }} data-testid="ritual-heading">
-          Three steps. <em className="italic" style={{ fontWeight: 400 }}>Seamless results.</em>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mt-16 max-w-6xl mx-auto">
-          {RITUAL.map((r, i) => (
-            <div key={r.n} className="flex flex-col items-center text-center mh-fade" style={{ animationDelay: `${0.15 * i}s` }} data-testid={`ritual-${r.n}`}>
-              <div className="w-32 h-44 mb-6 rounded-sm flex items-end justify-center" style={{ background: "linear-gradient(180deg,#EFE6D9 0%,#E5DCCF 100%)" }}>
-                <div className="font-serif-display" style={{ fontSize: 28, color: "var(--mh-gold-deep)", marginBottom: 24, fontWeight: 500 }}>MH</div>
-              </div>
-              <div className="font-serif-display" style={{ fontSize: 30, fontWeight: 500 }}>{r.n}</div>
-              <div className="font-sans-body mt-2" style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", fontWeight: 500 }}>{r.title}</div>
-              <p className="font-sans-body mt-5 max-w-[220px]" style={{ fontSize: 14, lineHeight: 1.7, color: "var(--mh-ink-soft)" }}>{r.body}</p>
-            </div>
-          ))}
-        </div>
+      <div className="overflow-hidden mh-fade" data-testid="ritual-image-wrapper">
+        <img
+          src={RITUAL_IMG}
+          alt="The Maison Hue Ritual — The Veil, The Hue, The Finish"
+          className="w-full h-auto block"
+          style={{ maxWidth: "100%" }}
+          data-testid="ritual-image"
+        />
       </div>
     </section>
   );
