@@ -8,6 +8,7 @@ const API = `${BACKEND_URL}/api`;
 /* === Imagery === */
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/fy1ku9f5_56007AC2-9D3C-4C49-8328-3B17B58F4F50.png";
 const STORY_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/zwscuoix_IMG_0182.jpeg";
+const RITUAL_IMG = "https://customer-assets.emergentagent.com/job_landing-preview-68/artifacts/l366adps_ECF3B368-BB6E-411E-BDDF-ED6CFE2F74E3.jpeg";
 
 const HAIR_COLOURS = [
   "Platinum Blonde",
@@ -192,6 +193,22 @@ function Story() {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Ritual ===== */
+function Ritual() {
+  return (
+    <section id="ritual" style={{ background: "var(--mh-bg)" }} data-testid="ritual-section">
+      <div className="overflow-hidden mh-fade">
+        <img
+          src={RITUAL_IMG}
+          alt="The Maison Hue Ritual — The Veil, The Hue, The Finish"
+          className="w-full h-auto block"
+          data-testid="ritual-image"
+        />
       </div>
     </section>
   );
@@ -390,6 +407,7 @@ export default function HoldingPage() {
     <main style={{ background: "var(--mh-bg)" }} data-testid="holding-page">
       <Hero />
       <Story />
+      <Ritual />
       <Join />
       <Footer />
     </main>
