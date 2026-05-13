@@ -236,7 +236,7 @@ function Matching() {
           style={{ fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.05, fontWeight: 500 }}
           data-testid="matching-heading"
         >
-          Composed for <em className="italic" style={{ fontWeight: 400 }}>your colour.</em>
+          Discover your <em className="italic" style={{ fontWeight: 400 }}>shade.</em>
         </h2>
         <p
           className="mt-10 font-sans-body mx-auto"
